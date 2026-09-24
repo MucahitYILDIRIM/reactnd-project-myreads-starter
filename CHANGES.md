@@ -32,3 +32,11 @@
 `CI=true npx react-scripts test --env=jsdom --coverage` → 2 suite, 17 test geçti.
 Kapsam: `App.js` %100, `BooksAPI.js` %100 (`index.js` %0, yukarıda açıklandı).
 Ortam: Node 26.5.0, npm 12.0.1.
+
+## Yeniden doğrulama (2026-09-24)
+
+Repo tekrar incelendi: kaynak kod (`App.js`, `BooksAPI.js`, `index.js`) önceki oturumdan beri
+değişmemiş. `CI=true npx react-scripts test --env=jsdom --coverage` yeniden çalıştırıldı:
+2 suite, 17 test geçti; `App.js` ve `BooksAPI.js` %100 kapsam, `index.js` yukarıdaki gerekçeyle
+kasıtlı olarak test dışı. Eklenecek eksik test veya gereken refactor bulunmadı, dosya
+değişikliği yapılmadı (bu not hariç).
