@@ -32,3 +32,16 @@
 `CI=true npx react-scripts test --env=jsdom --coverage` → 2 suite, 17 test geçti.
 Kapsam: `App.js` %100, `BooksAPI.js` %100 (`index.js` %0, yukarıda açıklandı).
 Ortam: Node 26.5.0, npm 12.0.1.
+
+## Kapsam gözden geçirme (yeni oturum)
+
+Repo yeniden tarandı: yukarıdaki test seti zaten master'a merge edilmiş durumda
+(bkz. PR #1). `CI=true npx react-scripts test --env=jsdom --coverage --watchAll=false`
+tekrar çalıştırıldı; 2 suite, 17 test geçti, `App.js` ve `BooksAPI.js` hâlâ %100
+kapsam, `index.js` hâlâ kasıtlı olarak test dışı (tek satır `ReactDOM.render`,
+dallanma/mantık yok — CRA şablonlarında da test edilmez).
+
+Kaynak dosyalar (`App.js`, `BooksAPI.js`, `index.js`) tekrar incelendi: test
+edilebilirliği engelleyen bir yapı yok, ele alınmamış bir dal/fonksiyon/hata yolu
+bulunamadı. Bu nedenle yeni test veya refactor eklenmedi — mevcut kapsam zaten
+eksiksiz kabul edildi. Kaynak kodda ve mevcut testlerde değişiklik yapılmadı.
